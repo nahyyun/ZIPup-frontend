@@ -12,7 +12,8 @@ import { useRecoilState, useSetRecoilState } from 'recoil';
 import { tokenState, userState } from '@store/store';
 import { useRouter } from 'next/router';
 import { useLogIn } from '@hooks/queries/useAuth';
-import { css } from 'styled-system/css';
+import PageLayout from '@components/Layout/pageLayout';
+import { css } from '@styled-system/css';
 import CreateImage from '@assets/images/funding_create_image.svg';
 import DeliveryImage from '@assets/images/funding_delivery_image.svg';
 import ParticipateImage from '@assets/images/funding_participate_image.svg';
@@ -54,6 +55,8 @@ export default function Home() {
   const [code, setCode] = useState('');
   const [isBrowsingService, setIsBrowsingService] = useState(false);
   const { data, refetch, isLoading } = useLogIn({ code });
+
+  console.log(token);
 
   useEffect(() => {
     console.log(router.asPath);
